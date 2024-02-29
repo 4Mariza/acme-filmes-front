@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/root.css">
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                azulbackground: '#0c4a6e',
+              }
+            }
+          }
+        }
+      </script>
+    <script src="./js/main.js" type="module" defer></script>
+    <title>ACME - FILMES</title>
+</head>
+<body>
+    <main>
+        <header>
+            <img src="./img/logo.svg" alt="" class="logo" id="logo">
+    
+            <input type="text" placeholder="busque por um filme..."><button><img src="./img/magnifying glass.svg" alt=""></button>
+    
+            <div class="links">
+                <a href="#">Séries</a>
+                <a href="#">Adicionados Recentemente</a>
+                <a href="#">Minha lista</a>
+            </div>
+        </header>
+    </main>
+</body>
+</html>
