@@ -1,6 +1,6 @@
 'use strict'
 
-import { getFilmes, getFilme, postFilme, putFilme, deleteFilme} from "./filmes.js"
+import { getFilmes, getFilme, postFilme, putFilme, deleteFilme, getFilmebyTitle} from "./filmes.js"
 
 async function criarCard (filme) {
 
@@ -28,8 +28,6 @@ async function preencherContainer() {
 preencherContainer()
 
  function showMovieInfos(filme){
-    const headerContainer = document.getElementById('bigbox')
-    headerContainer.classList.add('w-1/3', 'h-full')
 
     const img_header = document.getElementById('img_header')
     img_header.classList.add('w-2/3')
@@ -45,7 +43,7 @@ preencherContainer()
     sinopse.textContent = filme.sinopse
 
     const valor_unitario = document.getElementById('valor_unitario')
-    valor_unitario.textContent = `R$${filme.valor_unitario}`
+    valor_unitario.textContent = `R$${filme.valor_unitario.toFixed(2)}`
 
     const titleDuration = document.getElementById('title_duration')
     titleDuration.append(title, duracao)
@@ -59,13 +57,40 @@ preencherContainer()
     buy_button.appendChild(valor_unitario)
 
     const botoesContainer = document.getElementById('botoes')
+    botoesContainer.classList.remove('hidden')
     botoesContainer.appendChild(buy_button)
 
+    
     container.append(titleDurationBox, sinopse, botoesContainer)
 
-    headerContainer.appendChild(container)
+    const more = document.getElementById('more_info')
+    more.classList.remove('hidden')
 }
 
+const input = document.getElementById('busca')
+input.addEventListener('keypress',(event) => verifyKeyPress(event) )
+
+function verifyKeyPress(event) {
+    if (event.keyCode === 13) {
+        const filme = input.value
+        console.log(filme);
+        console.log('oiiiii');
+
+        buscaFilme(filme)
+    }
+  }
+
+
+async function buscaFilme(titulo){
+
+    const filmeNome = titulo
+
+    const filme = await getFilmebyTitle(filmeNome)
+    console.log(filme);
+
+    console.log('oi');
+    showMovieInfos(filme)
+}
 
 /////TESTE/////////
 // const filme = {  

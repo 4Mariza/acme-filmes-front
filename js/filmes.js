@@ -52,6 +52,15 @@ export async function deleteFilme(id){
     return response.ok
 }
 
+export async function getFilmebyTitle(title){
+    const url = `http://localhost:8080/v1/acmeFilmes/filmes/filtro/${title}`
+    const response = await fetch(url)
+    console.log('askjaksjajdjljdlkfjslkdjfljflkjskldfjkldsfjlkdsjfsdjflçjdçfasdjçflfjd');
+    const data = await response.json()
+    console.log(data.filme[0]);
+    return data.filme[0]
+}
+
 
 
 

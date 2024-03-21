@@ -12,7 +12,7 @@
 
 <body class="bg-sky-950 h-screen w-full overflow-auto no-scrollbar" >
     <header class=" h-2/4 flex flex-row w-screen bg-gradient-to-r from-[#25495B] to-[#205977]">
-      <div class="flex flex-col w-0 h-0" id="bigbox">
+      <div class="flex flex-col w-1/3 h-full" id="bigbox">
         <div class="flex flex-row gap-x-8 p-6 w-2/5 h-1/6 place-items-center  ">
           <img src="../img/logo.svg" alt="" class="w-28 h-16" id="logo">
           <form method="GET">
@@ -25,9 +25,9 @@
                   </svg>
                 </button>
               </span>
-              <input type="search" name="input"
+              <input method="GET" type="search" name="input" id="busca"
                 class="w-96 py-2 text-sm text-white bg-gray-900 rounded-full pl-5 focus:outline-stone-500 focus:bg-transparent"
-                placeholder="Busque por um filme..." autocomplete="off">
+                placeholder="Busque por um filme..." autocomplete="off" >
             </div>
           </form>
         </div>
@@ -37,10 +37,10 @@
               <h2 class="text-white text-2xl" id="title"></h2>
               <span class="text-slate-400" id="duration"></span>
             </div>
-            <button class="w-12 h-12 bg-[#669BBC] text-white text-3xl font-bold rounded-full hover:bg-sky-700">i</button>
+            <button class="w-12 h-12 bg-[#669BBC] text-white text-3xl font-bold rounded-full hover:bg-sky-700 hidden" id="more_info">i</button>
           </div>
           <p class="w-10/12 self-center text-white" id="sinopse"></p>
-          <div class="flex flex-row justify-between w-11/12 pl-12" id="botoes">
+          <div class="flex flex-row justify-between w-11/12 pl-12 hidden" id="botoes">
             <button class="w-40 h-14 bg-[#669BBC] flex flex-row text-white text-xl items-center gap-x-5 justify-center rounded-full ml-12 hover:bg-sky-700" id="buy_button">
               <span class="font-semibold " id="valor_unitario"></span>
               <img class="w-6" src="../img/SVGRepo_iconCarrier.png" alt="">
@@ -52,7 +52,8 @@
           </div>
         </div>
       </div>
-      <div class=" flex-row w-full bg-no-repeat bg-top bg-cover rounded-l-3xl h-full" id="img_header">
+      <div class=" flex-row w-full bg-no-repeat bg-center bg-cover rounded-l-3xl h-full " id="img_header">
+        <!-- <iframe autoplay="autoplay" class="w-full h-full" src="https://www.youtube.com/embed/YxL9wTkEgSY?autoplay=1&loop=1&playlist=YxL9wTkEgSY&mute=1" title="As Marvels | Trailer Oficial Dublado" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>>   -->
         <div class=" w-full h-1/6 flex flex-row place-items-center gap-x-8 text-xl pl-16 text-white font-semibold hidden" id="menu">
           <a class="hover:text-zinc-400" href="#">Séries</a>
           <a class="hover:text-zinc-400" href="#">Adicionados Recentemente</a>
