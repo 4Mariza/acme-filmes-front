@@ -1,22 +1,22 @@
 'use strict'
 
-import { getFilmes, getFilme,getFilmebyTitle} from "./filmes.js"
+import { getFilmes, getFilme, getFilmebyTitle, putFilme } from "./filmes.js"
 
-async function criarCard (filme) {
+async function criarCard(filme) {
 
     const card = document.createElement('img')
     card.src = filme.foto_capa
     card.classList.add('w-48', 'h-72', 'rounded-lg', 'transform', 'transition', 'duration-500', 'hover:scale-150', 'hover:shadow-md', 'hover:shadow-white')
-    
+
     return card
 }
 
 
 async function preencherContainer() {
     const container = document.getElementById('container_img')
-    
+
     const filmes = await getFilmes()
-    
+
     filmes.forEach(async filme => {
         const card = await criarCard(filme)
         container.appendChild(card)
@@ -27,8 +27,8 @@ async function preencherContainer() {
 
 preencherContainer()
 
- function showMovieInfos(filme){
-
+function showMovieInfos(filme) {
+    console.log(filme);
     const img_header = document.getElementById('img_header')
     img_header.classList.add('w-2/3')
     img_header.style.backgroundImage = `url(${filme.foto_fundo})`
@@ -60,53 +60,53 @@ preencherContainer()
     botoesContainer.classList.remove('hidden')
     botoesContainer.appendChild(buy_button)
 
-    
+
     container.append(titleDurationBox, sinopse, botoesContainer)
 
-    const more = document.getElementById('more_info')
-    more.classList.remove('hidden')
+    const moreInfo = document.getElementById('more_info')
+    moreInfo.classList.remove('hidden')
 }
 
 const input = document.getElementById('busca')
-input.addEventListener('keypress',(event) => verifyKeyPress(event) )
+input.addEventListener('keypress', (event) => verifyKeyPress(event))
 
 function verifyKeyPress(event) {
-    if (event.keyCode === 13) {
-        const filme = input.value
-        console.log(filme);
-        console.log('oiiiii');
 
+    if (event.keyCode === 13) {
+        event.preventDefault()
+
+        const filme = input.value
         buscaFilme(filme)
     }
-  }
+}
 
 
-async function buscaFilme(titulo){
+async function buscaFilme(titulo) {
 
     const filmeNome = titulo
 
     const filme = await getFilmebyTitle(filmeNome)
-    console.log(filme);
 
-    console.log('oi');
     showMovieInfos(filme)
 }
 
 /////TESTE/////////
-// const filme = {  
-//         "id":4,
-//         "nome": "Parasita",
-//         "sinopse": "Em Parasita, toda a família de Ki-taek (Song Kang Ho) está desempregada, vivendo num porão sujo e apertado. Uma obra do acaso faz com que o filho adolescente da família comece a dar aulas de inglês à garota de uma família rica. Fascinados com a vida luxuosa destas pessoas, pai, mãe, filho e filha bolam um plano para se infiltrarem também na família burguesa, um a um. No entanto, os segredos e mentiras necessários à ascensão social custarão caro a todos.",
-//         "duracao":"02:12:00",
-//         "data_lancamento": "2019-11-07",
-//         "data_relancamento": null,
-//         "foto_capa": "https://img.elo7.com.br/product/zoom/2D25B68/big-poster-filme-parasita-2019-lo001-tamanho-90x60-cm-nerd.jpg",
-//         "valor_unitario": 49.40
+// const filme = {
+//     "id": 3,
+//     "nome": "Coraline",
+//     "sinopse": "Entediada em sua nova casa, Caroline Jones (Dakota Fanning) um dia encontra uma porta secreta. Através dela tem acesso a uma outra versão de sua própria vida, a qual aparentemente é bem parecida com a que leva. A diferença é que neste outro lado tudo parece ser melhor, inclusive as pessoas com quem convive. Caroline se empolga com a ...",
+//     "categoria": "Ficção Científica",
+//     "duracao": "01:40:00",
+//     "data_lancamento": "2009-02-13",
+//     "data_relancamento": null,
+//     "foto_capa": "https://petletras.paginas.ufsc.br/files/2022/09/22b31b1bcf3aeb7078bf37e249543183.jpg",
+//     "foto_fundo": "",
+//     "valor_unitario": 16
 // }
 
 
 
 //postFilme(filmeput)
 //getFilme(5)
-//putFilme(filme)
+// putFilme(filme)
 // deleteFilme(7)
