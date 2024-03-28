@@ -1,6 +1,6 @@
 'use strict'
 
-import { getFilmes, getFilme, postFilme, putFilme, deleteFilme, getFilmebyTitle} from "./filmes.js"
+import { getFilmes, getFilme,getFilmebyTitle} from "./filmes.js"
 
 async function criarCard (filme) {
 
@@ -31,13 +31,13 @@ preencherContainer()
 
     const img_header = document.getElementById('img_header')
     img_header.classList.add('w-2/3')
-    img_header.style.backgroundImage = `url(${filme.foto_capa})`
+    img_header.style.backgroundImage = `url(${filme.foto_fundo})`
 
     const title = document.getElementById('title')
     title.textContent = filme.nome
 
     const duracao = document.getElementById('duration')
-    duracao.textContent = filme.duracao
+    duracao.textContent = moment.utc(filme.duracao).format('HH:mm:ss')
 
     const sinopse = document.getElementById('sinopse')
     sinopse.textContent = filme.sinopse
