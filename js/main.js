@@ -88,7 +88,7 @@ async function buscaFilme(titulo) {
     const filme = await getFilmebyTitle(filmeNome)
 
     showMovieInfos(filme)
-}
+}   
 
 /////TESTE/////////
 // const filme = {
