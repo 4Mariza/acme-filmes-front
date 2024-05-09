@@ -42,7 +42,7 @@ Níveis | Desempenho | Nota
 
 Protótipo | FRONT-END | Landing Page | CMS
 ----------|-----------|--------------|-----
-[Figma][link1] | [projeto][link2] | [gitPreview][link3] | [link][link3] 
+[Figma][https://www.figma.com/design/KkBgg1iUSk4ApkYK7S7D2n/streaming?node-id=1%3A32&t=lN9tbaFdpDJ8M4cI-1] | [projeto][link2] | [gitPreview][link3] | [link][link3] 
 
 
 [link1]: https://www.figma.com/
